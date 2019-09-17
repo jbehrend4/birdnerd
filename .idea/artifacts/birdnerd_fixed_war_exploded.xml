@@ -1,10 +1,11 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="birdnerd_artifact">
-    <output-path>$PROJECT_DIR$/out/artifacts/birdnerd_artifact</output-path>
+  <artifact type="exploded-war" name="birdnerd-fixed:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/birdnerd_fixed_war_exploded</output-path>
     <root id="root">
+      <element id="javaee-facet-resources" facet="birdnerd-fixed/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="BackyardBirdnerd" />
+          <element id="module-output" name="birdnerd-fixed" />
         </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$PROJECT_DIR$/lib/derby.jar" />
@@ -15,7 +16,6 @@
           </element>
         </element>
       </element>
-      <element id="module-output" name="BackyardBirdnerd" />
     </root>
   </artifact>
 </component>
