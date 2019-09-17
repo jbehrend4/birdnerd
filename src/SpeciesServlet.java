@@ -30,22 +30,24 @@ SpeciesServlet extends HttpServlet {
 
             String path = getServletContext().getRealPath(PATH);
 
-            StringBuilder sql = new StringBuilder("SELECT * FROM species");
+            conn = DriverManager.getConnection(DRIVER + path, USER, PW);
 
-            StringBuilder output = new StringBuilder();
+            stmt = conn.createStatement();
 
-            output.append("<html><body><ul>");
+            rset = stmt.executeQuery("SELECT * FROM species");
+
+            StringBuilder html = new StringBuilder("<html><body>");
 
             while (rset.next()) {
                 int speciesID = rset.getInt(1);
                 String speciesName = rset.getString(2);
                 String speciesType = rset.getString(3);
-                output.append("<li>").append(speciesID + " : " + speciesName + " : " + speciesType).append("</li>");
+                html.append("<li>").append(speciesID + " : " + speciesName + " : " + speciesType).append("</li>");
             }
 
-            output.append("</ul></body></html>");
+            html.append("</ul></body></html>");
 
-            response.getWriter().print(output.toString());
+            response.getWriter().print(html.toString());
         }
         catch (SQLException | ClassNotFoundException e) {
             response.getWriter().print(e.getMessage());
