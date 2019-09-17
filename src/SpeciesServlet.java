@@ -21,7 +21,7 @@ SpeciesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Connection conn = null;
         ResultSet rset = null;
-        Statement stmt = null;
+        PreparedStatement pstmt = null;
 
         try {
             String searchTerm = request.getParameter("speciesName");
@@ -30,11 +30,14 @@ SpeciesServlet extends HttpServlet {
 
             String path = getServletContext().getRealPath(PATH);
 
+            StringBuilder sql = new StringBuilder("SELECT * FROM species");
+
             conn = DriverManager.getConnection(DRIVER + path, USER, PW);
 
-            stmt = conn.createStatement();
+            pstmt = conn.prepareStatement(sql.toString());
+            pstmt.setString(1, searchTerm);
 
-            rset = stmt.executeQuery("SELECT * FROM species");
+            rset = pstmt.executeQuery();
 
             StringBuilder html = new StringBuilder("<html><body>");
 
@@ -62,9 +65,9 @@ SpeciesServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            if (stmt != null) {
+            if (pstmt != null) {
                 try {
-                    stmt.close();
+                    pstmt.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
