@@ -33,6 +33,10 @@ public class ListServlet extends HttpServlet {
 
             rset = stmt.executeQuery("SELECT * FROM species");
 
+            while (rset.next()) {
+                int id = rset.getInt("species_id");
+                String nm = rset.getString(2);
+            }
         }
         catch (SQLException | ClassNotFoundException e) {
             response.getWriter().print(e.getException());
