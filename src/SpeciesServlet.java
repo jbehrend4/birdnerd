@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "SpeciesServlet", urlPatterns = "/SpeciesSearch")
+@WebServlet(name = "SpeciesServlet", urlPatterns = "/AnimalSearch")
 public class
 SpeciesServlet extends HttpServlet {
     private final String PATH = "/WEB-INF/lib/birdnerd";
@@ -24,14 +24,14 @@ SpeciesServlet extends HttpServlet {
         PreparedStatement pstmt = null;
 
         try {
-            String searchTerm = request.getParameter("speciesName");
+            String searchTerm = request.getParameter("animalType");
 
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
             String path = getServletContext().getRealPath(PATH);
 
-            StringBuilder sql = new StringBuilder("SELECT * FROM species");
-
+            StringBuilder sql = new StringBuilder("SELECT species_name FROM species");
+            sql.append(" WHERE animaltype = ?");
             conn = DriverManager.getConnection(DRIVER + path, USER, PW);
 
             pstmt = conn.prepareStatement(sql.toString());
@@ -42,10 +42,8 @@ SpeciesServlet extends HttpServlet {
             StringBuilder html = new StringBuilder("<html><body>");
 
             while (rset.next()) {
-                int speciesID = rset.getInt(1);
-                String speciesName = rset.getString(2);
-                String speciesType = rset.getString(3);
-                html.append("<li>").append(speciesID + " : " + speciesName + " : " + speciesType).append("</li>");
+                String speciesName = rset.getString(1);
+                html.append("<li>").append(speciesName).append("</li>");
             }
 
             html.append("</ul></body></html>");
