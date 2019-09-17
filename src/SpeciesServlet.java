@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "ListServlet",
-urlPatterns = "/list")
-public class ListServlet extends HttpServlet {
+@WebServlet(name = "SpeciesServlet", urlPatterns = "/SpeciesSearch")
+public class
+SpeciesServlet extends HttpServlet {
     private final String PATH = "/WEB-INF/lib/birdnerd";
     private final String USER = "jbehrend4";
     private final String PW = "000535440";
@@ -24,27 +24,28 @@ public class ListServlet extends HttpServlet {
         Statement stmt = null;
 
         try {
+            String searchTerm = request.getParameter("speciesName");
+
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
             String path = getServletContext().getRealPath(PATH);
 
-            conn = DriverManager.getConnection(DRIVER + path, USER, PW);
+            StringBuilder sql = new StringBuilder("SELECT * FROM species");
 
-            stmt = conn.createStatement();
+            StringBuilder output = new StringBuilder();
 
-            rset = stmt.executeQuery("SELECT * FROM species");
-
-            StringBuilder html = new StringBuilder("<html><body>");
+            output.append("<html><body><ul>");
 
             while (rset.next()) {
-                int id = rset.getInt("species_id");
-                String nm = rset.getString(2);
-                html.append("<p>").append(id).append(",").append(nm).append("</p>");
+                int speciesID = rset.getInt(1);
+                String speciesName = rset.getString(2);
+                String speciesType = rset.getString(3);
+                output.append("<li>").append(speciesID + " : " + speciesName + " : " + speciesType).append("</li>");
             }
 
-            html.append("</body></html>");
+            output.append("</ul></body></html>");
 
-            response.getWriter().print(html.toString());
+            response.getWriter().print(output.toString());
         }
         catch (SQLException | ClassNotFoundException e) {
             response.getWriter().print(e.getMessage());
