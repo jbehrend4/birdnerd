@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Nov 18 21:30:54 CST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.1.3 - (1853019): instance a816c00e-016e-81b6-8bdd-00000acfbe00 
+on database directory C:\Users\bitstudent\Desktop\birdnerd-master\lib\birdnerd2 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2626b418 
+Loaded from file:/C:/Users/bitstudent/Desktop/birdnerd-master/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=12.0.2+10
+user.dir=C:\Users\bitstudent\Desktop\birdnerd-master
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
