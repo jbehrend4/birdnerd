@@ -23,6 +23,9 @@
           <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-databind:2.10.1" />
           <element id="library" level="project" name="org.hibernate.validator:hibernate-validator:6.1.0.Final" />
           <element id="library" level="project" name="Spring MVC-4.3.18.RELEASE" />
+          <element id="library" level="project" name="Hibernate 5.4.9-5.4.9" />
+          <element id="library" level="project" name="Spring MVC-4.3.18.RELEASE (2)" />
+          <element id="library" level="project" name="Spring-4.3.18.RELEASE" />
         </element>
       </element>
     </root>
