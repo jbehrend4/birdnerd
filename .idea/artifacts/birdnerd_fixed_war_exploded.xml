@@ -14,6 +14,8 @@
           <element id="directory" name="birdnerd">
             <element id="dir-copy" path="$PROJECT_DIR$/lib/birdnerd" />
           </element>
+          <element id="library" level="application" name="Spring" />
+          <element id="library" level="application" name="Hibernate" />
         </element>
       </element>
     </root>
