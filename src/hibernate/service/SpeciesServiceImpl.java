@@ -3,10 +3,12 @@ package hibernate.service;
 import hibernate.DAO.SpeciesDAO;
 import hibernate.entity.Species;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class SpeciesServiceImpl implements SpeciesService {
     @Autowired
     private SpeciesDAO dao;
