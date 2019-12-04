@@ -22,4 +22,14 @@ public class SpeciesServiceImpl implements SpeciesService {
     public Species getSpecies(int id) {
         return dao.getSpecies(id);
     }
+
+    @Override
+    public List<Species> getSpeciesSearch(String search) {
+        return dao.getSpeciesSearch(search);
+    }
+
+    @Override
+    public void deleteSpecies(int id) {
+        dao.deleteSpecies(id);
+    }
 }

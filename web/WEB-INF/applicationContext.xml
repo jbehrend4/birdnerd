@@ -2,21 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <context:component-scan base-package="springmvc"/>
-
-    <mvc:annotation-driven/>
-    <mvc:resources
-            mapping="/resources/**" location="/WEB-INF/resources/">
-    </mvc:resources>
+    <context:component-scan base-package="hibernate"/>
 
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <!-- JDBC Database connection settings -->
         <property name="driverClass" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-        <property name="jdbcUrl" value="jdbc:derby:#{ servletContext.getRealPath('/') }/../../../db"/>
-        <property name="user" value="donut_reviews"/>
-        <property name="password" value="stacy"/>
+        <property name="jdbcUrl" value="jdbc:derby:lib/birdnerd2"/>
+        <property name="user" value="BIRDNERD"/>
+        <property name="password" value="000535440"/>
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="initialPoolSize" value="5"/>

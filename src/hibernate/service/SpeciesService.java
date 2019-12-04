@@ -8,4 +8,8 @@ public interface SpeciesService {
     List<Species> getSpecies();
 
     Species getSpecies(int id);
+
+    List<Species> getSpeciesSearch(String search);
+
+    void deleteSpecies(int id);
 }
