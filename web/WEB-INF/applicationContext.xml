@@ -8,7 +8,7 @@
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <!-- JDBC Database connection settings -->
         <property name="driverClass" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-        <property name="jdbcUrl" value="jdbc:derby:lib/birdnerd2"/>
+        <property name="jdbcUrl" value="jdbc:derby://lib/birdnerd2"/>
         <property name="user" value="BIRDNERD"/>
         <property name="password" value="000535440"/>
 
