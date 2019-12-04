@@ -22,7 +22,14 @@
                 <th>Animal Type</th>
             </tr>
             <c:forEach var="species" items="${species}">
-
+                <c:url var="edit" value="/updateSpecies">
+                    <c:param name="id" value="${species.speciesID}"/>
+                </c:url>
+                <tr>
+                    <td>${species.speciesID}</td>
+                    <td>${species.speciesName}</td>
+                    <td>${species.animalTypeID}</td>
+                </tr>
             </c:forEach>
         </table>
     </div>

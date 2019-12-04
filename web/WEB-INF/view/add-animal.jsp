@@ -9,12 +9,12 @@
     <div id="wrapper">
         <h3>Add an Animal</h3>
         <form:form action="save" modelAttribute="species" enctype="multipart/form-data">
-            <form:hidden path="id" value="${species.speciesID}"></form:hidden>
+            <form:hidden path="speciesID" value="${species.speciesID}"></form:hidden>
 
             <table>
                 <tr>
                     <td><label>Species Name</label></td>
-                    <td><form:input path="speciesID"/></td>
+                    <td><form:input path="speciesName"/></td>
                 </tr>
                 <tr>
                     <td><label>Animal Type</label></td>
