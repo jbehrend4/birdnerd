@@ -26,9 +26,6 @@
                 <th>Animal Type</th>
             </tr>
             <c:forEach var="species" items="${species}">
-                <c:url var="edit" value="/species/updateSpecies">
-                    <c:param name="speciesID" value="${species.speciesID}"/>
-                </c:url>
                 <c:url var="delete" value="/species/delete">
                     <c:param name="speciesID" value="${species.speciesID}"/>
                 </c:url>
@@ -36,7 +33,6 @@
                     <td>${species.speciesID}</td>
                     <td>${species.speciesName}</td>
                     <td>${species.animalTypeID}</td>
-                    <td><a href="${edit}">Edit</a></td>
                     <td><a href="${delete}">Delete</a></td>
                 </tr>
             </c:forEach>
