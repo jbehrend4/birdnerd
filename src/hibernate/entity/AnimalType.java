@@ -5,7 +5,7 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "AnimalType")
+@Table(name = "ANIMALTYPE")
 public class AnimalType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

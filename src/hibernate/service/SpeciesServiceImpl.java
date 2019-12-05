@@ -26,12 +26,20 @@ public class SpeciesServiceImpl implements SpeciesService {
     }
 
     @Override
+    @Transactional
     public List<Species> getSpeciesSearch(String search) {
         return dao.getSpeciesSearch(search);
     }
 
     @Override
+    @Transactional
     public void deleteSpecies(int id) {
         dao.deleteSpecies(id);
+    }
+
+    @Override
+    @Transactional
+    public void saveSpecies(Species species) {
+        dao.saveSpecies(species);
     }
 }

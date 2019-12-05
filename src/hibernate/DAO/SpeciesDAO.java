@@ -12,4 +12,6 @@ public interface SpeciesDAO {
     List<Species> getSpeciesSearch(String search);
 
     void deleteSpecies(int id);
+
+    void saveSpecies(Species species);
 }

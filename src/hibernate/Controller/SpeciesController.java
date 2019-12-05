@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +30,13 @@ public class SpeciesController {
 
             return "list-species";
 
+    }
+
+    @GetMapping("/delete")
+    public String deleteSpecies(@RequestParam("speciesID") int id) {
+        speciesService.deleteSpecies(id);
+
+        return "redirect:/species/list";
     }
 
     @RequestMapping("/list")
@@ -60,8 +68,13 @@ public class SpeciesController {
         return "add-animal";
     }
 
+    @PostMapping("/save")
+    public String saveSpecies(Species species,
+                            Model theModel ) {
 
+        speciesService.saveSpecies(species);
 
-
+        return "redirect:/species/list";
+    }
 
 }

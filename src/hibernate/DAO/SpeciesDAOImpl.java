@@ -53,4 +53,11 @@ public class SpeciesDAOImpl implements SpeciesDAO {
 
         query.executeUpdate();
     }
+
+    @Override
+    public void saveSpecies(Species species) {
+        Session session = factory.getCurrentSession();
+
+        session.saveOrUpdate(species);
+    }
 }

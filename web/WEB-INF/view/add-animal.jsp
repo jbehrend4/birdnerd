@@ -19,8 +19,12 @@
                 <tr>
                     <td><label>Animal Type</label></td>
                     <td><form:select items="${animalType}" path="animalTypeID"
-                                     itemLabel="animalTypeName" itemValue="animaltypeid">
+                                     itemLabel="animalTypeName" itemValue="animalTypeID">
                     </form:select></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Save" class="save"></td>
                 </tr>
             </table>
 

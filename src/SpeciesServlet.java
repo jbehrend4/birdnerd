@@ -9,8 +9,8 @@ import java.sql.*;
 @WebServlet(name = "SpeciesServlet", urlPatterns = "/AnimalSearch")
 public class
 SpeciesServlet extends HttpServlet {
-    private final String PATH = "/WEB-INF/lib/birdnerd";
-    private final String USER = "jbehrend4";
+    private final String PATH = "/WEB-INF/lib/birdnerd2";
+    private final String USER = "BIRDNERD";
     private final String PW = "000535440";
     private final String DRIVER = "jdbc:derby:";
 
